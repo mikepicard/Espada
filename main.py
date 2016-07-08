@@ -30,17 +30,14 @@ if __name__ == "__main__":
 	parser.add_argument( "-m", help="bot master irc nick", required=True )
 	parser.add_argument( "-c", help="irc channel", required=True )
 
-	args = vars( parser.parse_args() )
+	args 	= vars( parser.parse_args() )
 
-	irc = args["i"]
-	port = int(args["p"])
-	bot = int(args["b"])
-	master = args["m"]
+	s 		= int(args["s"])
+	irc 	= args["i"]
+	bot 	= int(args["b"])
+	port 	= int(args["p"])
+	master 	= args["m"]
 	channel = args["c"]
-	if int(args["s"]) == 1:
-		s = 1
-	else:
-		s = 0
 
 	for i in range( bot ):
 		Process( target=let_the_fun_begin, args=(irc, port, s, master, channel,) ).start()
