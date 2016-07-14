@@ -4,15 +4,21 @@ import random
 
 from connect import *
 
-def let_the_fun_begin(  irc,port,s,master,channel ):
+def let_the_fun_begin(  irc,port,s,master,channel,nicklist ):
 
-	for i in xrange( 10 ):
-		nick = ''
-		for _ in range(random.randint(4,9)): nick += ''.join(random.choice(string.ascii_lowercase) )
-		Thread( Con, (irc,port,s,master,channel,nick,))
+        for i in xrange( 10 ):
+                nick = ''
+                if nicklist is not None:
+                    nick = random.choice( [ x for x in open( "pokemon.txt", "r" ).readlines() ] ).rstrip( "\n" )
+                else:
+                    for _ in range(random.randint(4,9)): 
+                        nick += ''.join(random.choice(string.ascii_lowercase) )
 
-	while True:
-		continue
+                Thread( Con, (irc,port,s,master,channel,nick,))
+
+        while True:
+                continue
+
 def new_ip():
 	sock = socket.socket()
 	sock.connect(("127.0.0.1",9051))
