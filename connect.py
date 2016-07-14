@@ -106,15 +106,30 @@ class Con:
 	def stahp( self ):
 		self.who = None
 		self.spam = 0 
-	def spam( self, who ):
-		if self.spam is 0: self.spam 	= 1
-		if self.who is None: self.who 	= who
+        
+        def spam( self, who ):
+                if self.spam is 0: self.spam    = 1
+                if self.who is None: self.who   = who
+                
+                fg = [
+                    "31", "32", "33", "34", "35", 
+                    "36", "37", "90", "91", "92", 
+                    "93", "94", "95", "96", "97"
+                ]
 
-		for i in xrange(10):
-		
-			self.send_chan( who , "trololo " *10)
-		time.sleep( 3 )
-		return
+                bg = [
+                    "40m", "41m", "42m", "43m", "44m",
+                    "45m", "46m", "47m", "100m", "101m",
+                    "102m", "103m", "104m", "105m", "106m"
+                ]
+
+                text = "\033[{};{}{}\033[0m".format( choice( fg ), choice( bg ), "GOTTA CATCH THEM ALL " * 10 )
+
+                for i in xrange(10):
+                        self.send_chan( who , text )
+                time.sleep( 3 )
+                return
+
 
 			
 
