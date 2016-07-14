@@ -108,8 +108,8 @@ class Con:
 		self.spam = 0 
         
         def spam( self, who ):
-                if self.spam is 0: self.spam    = 1
-                if self.who is None: self.who   = who
+                if self.spam is 0: self.spam   = 1
+                if self.who is None: self.who  = who
                 
                 fg = [
                     "31", "32", "33", "34", "35", 
